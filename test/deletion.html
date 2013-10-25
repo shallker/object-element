@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script>
+      var ObjectElement = require('object-element');
+      var test = require('simple-test');
+
+      function createDiv() {
+        return document.body.appendChild(document.createElement('div'));
+      }
+
+      function removeDiv(div) {
+        return div.parentNode.removeChild(div);
+      }
+
+      test('objectElement.empty()', function () {
+        var div = createDiv();
+        var div1 = createDiv();
+        var div2 = createDiv();
+        var div3 = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(div.childNodes.length, 3);
+        objectElement.empty();
+        test.eq(div.childNodes.length, 0);
+        removeDiv(div);
+      });
+
+      test('objectElement.destroy()', function () {
+        var div = createDiv();
+        var div1 = createDiv();
+        var div2 = createDiv();
+        var div3 = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div.id = 'div';
+        div1.id = 'div1';
+        div2.id = 'div2';
+        div3.id = 'div3';
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.ok(document.getElementById('div'));
+        test.ok(document.getElementById('div1'));
+        test.ok(document.getElementById('div2'));
+        test.ok(document.getElementById('div3'));
+
+        objectElement.destroy();
+
+        test.eq(document.getElementById('div'), null);
+        test.eq(document.getElementById('div1'), null);
+        test.eq(document.getElementById('div2'), null);
+        test.eq(document.getElementById('div3'), null);
+      });
+      </script>
+  </body>
+</html>

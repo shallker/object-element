@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      var ObjectElement = require('object-element');
+      var test = require('simple-test');
+
+      function createDiv() {
+        return document.body.appendChild(document.createElement('div'));
+      }
+
+      test('objectElement.show()', function () {
+        var div = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div.style.display = 'none';
+        objectElement.text = '.show()';
+        objectElement.show();
+      });
+
+      test('objectElement.hide()', function () {
+        var div = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div.style.display = 'block';
+        objectElement.text = '.hide()';
+        objectElement.hide();
+      });
+      </script>
+  </body>
+</html>

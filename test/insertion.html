@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      var ObjectElement = require('object-element');
+      var test = require('simple-test');
+
+      function createDiv() {
+        return document.body.appendChild(document.createElement('div'));
+      }
+
+      test('objectElement.append()', function () {
+        var div = createDiv();
+        var div2 = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div2.textContent = '.append()';
+        test.ok(objectElement.append(div2));
+        test.eq(objectElement.lastChild().el, div2)
+      });
+
+      test('objectElement.prepend()', function () {
+        var div = createDiv();
+        var div2 = createDiv();
+        var objectElement = new ObjectElement(div);
+
+        div2.textContent = '.prepend()'
+        test.ok(objectElement.prepend(div2));
+        test.eq(objectElement.firstChild().el, div2)
+      });
+      </script>
+  </body>
+</html>
