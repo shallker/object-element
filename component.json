@@ -1,0 +1,21 @@
+{
+  "name": "object-element",
+  "repo": "shallker/object-element",
+  "description": "Wrap host object HTMLElement in a JavaScript object to provide across browser interface",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/domify": "*",
+    "shallker-wang/eventy": "*"
+  },
+  "development": {
+    "shallker/simple-test": "*"  
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "lib/object-element.js",
+    "util/index.js"
+  ]
+}
