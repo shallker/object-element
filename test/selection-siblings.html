@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script src="./helper/index.js"></script>
+    <script>
+      var ObjectElement = require('object-element');
+      var test = require('simple-test');
+
+      test('objectElement.prevSibling()', function () {
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
+        var objectDiv3 = new ObjectElement(div3);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv3.prevSibling().el, div2);
+        remove(div);
+      });
+
+      test('objectElement.nextSibling()', function () {
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
+        var objectDiv1 = new ObjectElement(div1);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv1.nextSibling().el, div2);
+        remove(div);
+      });
+
+      test('objectElement.prevSibling(selector)', function () {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv3 = new ObjectElement(div3);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv3.prevSibling('.div1').el, div1);
+        test.eq(objectDiv3.prevSibling('.div2').el, div2);
+        remove(div);
+      });
+
+      test('objectElement.nextSibling(selector)', function () {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv1 = new ObjectElement(div1);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv1.nextSibling('.div2').el, div2);
+        test.eq(objectDiv1.nextSibling('.div3').el, div3);
+        remove(div);
+      });
+
+      test('objectElement.prevSiblings()', function () {
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
+        var objectDiv3 = new ObjectElement(div3);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv3.prevSiblings().length, 2);
+        test.eq(objectDiv3.prevSiblings()[0].el, div1);
+        test.eq(objectDiv3.prevSiblings()[1].el, div2);
+        remove(div);
+      });
+
+      test('objectElement.nextSiblings()', function () {
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
+        var objectDiv1 = new ObjectElement(div1);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv1.nextSiblings().length, 2);
+        test.eq(objectDiv1.nextSiblings()[0].el, div2);
+        test.eq(objectDiv1.nextSiblings()[1].el, div3);
+        remove(div);
+      });
+
+      test('objectElement.siblings()', function () {
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
+        var objectDiv2 = new ObjectElement(div2);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv2.siblings().length, 2);
+        test.eq(objectDiv2.siblings()[0].el, div1);
+        test.eq(objectDiv2.siblings()[1].el, div3);
+        remove(div);
+      });
+
+      test('objectElement.prevSiblings(selector)', function () {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv3 = new ObjectElement(div3);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv3.prevSiblings('.div1').length, 1);
+        test.eq(objectDiv3.prevSiblings('.div1')[0].el, div1);
+        test.eq(objectDiv3.prevSiblings('.div2').length, 1);
+        test.eq(objectDiv3.prevSiblings('.div2')[0].el, div2);
+        remove(div);
+      });
+
+      test('objectElement.nextSiblings(selector)', function () {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv1 = new ObjectElement(div1);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv1.nextSiblings('.div2').length, 1);
+        test.eq(objectDiv1.nextSiblings('.div2')[0].el, div2);
+        test.eq(objectDiv1.nextSiblings('.div3').length, 1);
+        test.eq(objectDiv1.nextSiblings('.div3')[0].el, div3);
+        remove(div);
+      });
+
+      test('objectElement.siblings(selector)', function () {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv2 = new ObjectElement(div2);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        test.eq(objectDiv2.siblings('.div1').length, 1);
+        test.eq(objectDiv2.siblings('.div1')[0].el, div1);
+        test.eq(objectDiv2.siblings('.div3').length, 1);
+        test.eq(objectDiv2.siblings('.div3')[0].el, div3);
+        remove(div);
+      });
+
+      </script>
+  </body>
+</html>
