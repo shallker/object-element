@@ -6,13 +6,10 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
-
-      function createDiv() {
-        return document.body.appendChild(document.createElement('div'));
-      }
 
       test('rewrite objectElement.el', function () {
         var div1 = createDiv();
@@ -27,7 +24,7 @@
         test.eq(div2.textContent, 'div2')
       });
 
-      test('rewrite objectElement.el as a prototype', function () {
+      test('rewrite objectElement.el when objectElement as a prototype', function () {
         var div1 = createDiv();
         var div2 = createDiv();
         var objectElement = new ObjectElement(div1);

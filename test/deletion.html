@@ -6,17 +6,10 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
-
-      function createDiv() {
-        return document.body.appendChild(document.createElement('div'));
-      }
-
-      function removeDiv(div) {
-        return div.parentNode.removeChild(div);
-      }
 
       test('objectElement.empty()', function () {
         var div = createDiv();
@@ -32,7 +25,7 @@
         test.eq(div.childNodes.length, 3);
         objectElement.empty();
         test.eq(div.childNodes.length, 0);
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.destroy()', function () {

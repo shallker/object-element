@@ -6,23 +6,10 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
-
-      function createDiv(id) {
-        var div = document.createElement('div');
-
-        if (id) {
-          div.id = id;
-        };
-
-        return document.body.appendChild(div);
-      }
-
-      function removeDiv(div) {
-        div.parentNode.removeChild(div);
-      }
 
       test('objectElement.append(element)', function () {
         var div = createDiv('div');
@@ -34,7 +21,7 @@
         test.eq(div.lastChild, div1)
         objectDiv.append(div2);
         test.eq(div.lastChild, div2)
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.prepend(element)', function () {
@@ -47,7 +34,7 @@
         test.eq(div.firstChild, div1);
         objectDiv.prepend(div2);
         test.eq(div.firstChild, div2);
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.append(element, index)', function () {
@@ -64,7 +51,7 @@
 
         objectDiv.append(div4, 1);
         test.eq(div.children[2], div4)
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.prepend(element, index)', function () {
@@ -81,7 +68,7 @@
 
         objectDiv.prepend(div4, 1);
         test.eq(div.children[1], div4)
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.appendTo(element)', function () {
@@ -95,7 +82,7 @@
         test.eq(div.lastChild, div1);
         objectDiv2.appendTo(div);
         test.eq(div.lastChild, div2);
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.prependTo(element)', function () {
@@ -109,7 +96,7 @@
         test.eq(div.firstChild, div1);
         objectDiv2.prependTo(div);
         test.eq(div.firstChild, div2);
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.appendTo(element, index)', function () {
@@ -126,7 +113,7 @@
 
         objectDiv4.appendTo(div, 1);
         test.eq(div.children[2], div4)
-        removeDiv(div);
+        remove(div);
       });
 
       test('objectElement.prependTo(element, index)', function () {
@@ -143,7 +130,7 @@
 
         objectDiv4.prependTo(div, 1);
         test.eq(div.children[1], div4)
-        removeDiv(div);
+        remove(div);
       });
 
       </script>

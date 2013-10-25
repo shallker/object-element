@@ -6,20 +6,16 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
-    <script src="./index.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
 
-      function createDiv() {
-        return document.body.appendChild(document.createElement('div'));
-      }
-
       test('objectElement.firstChild()', function () {
-        var div = createDiv();
-        var div1 = createDiv();
-        var div2 = createDiv();
-        var div3 = createDiv();
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
         var objectElement = new ObjectElement(div);
 
         div.appendChild(div1);
@@ -30,10 +26,10 @@
       });
 
       test('objectElement.lastChild()', function () {
-        var div = createDiv();
-        var div1 = createDiv();
-        var div2 = createDiv();
-        var div3 = createDiv();
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
         var objectElement = new ObjectElement(div);
 
         div.appendChild(div1);
@@ -44,10 +40,10 @@
       });
 
       test("objectElement.selectFirst()", function () {
-        var div = createDiv();
-        var div1 = createDiv();
-        var div2 = createDiv();
-        var div3 = createDiv();
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
         var objectElement = new ObjectElement(div);
 
         div.appendChild(div1);
@@ -57,10 +53,10 @@
       });
 
       test("objectElement.selectLast()", function () {
-        var div = createDiv();
-        var div1 = createDiv();
-        var div2 = createDiv();
-        var div3 = createDiv();
+        var div = createDiv('div');
+        var div1 = createDiv('div1');
+        var div2 = createDiv('div2');
+        var div3 = createDiv('div3');
         var objectElement = new ObjectElement(div);
 
         div.appendChild(div1);
