@@ -20,56 +20,64 @@ var objectElement = new ObjectElement(element);
 ## API
 ### objectElement
 
-Properties
-#### .id
-#### .text
-#### .width
-#### .height
-#### .opacity
+#### Properties
+##### .id
+##### .text
+##### .html
+##### .width
+##### .height
+##### .opacity
 
-Read only properties
-#### .parent
-#### .hidden
-#### .tag
+#### Read-only properties
+##### .tag
+##### .hidden
+##### .parent
 
-Methods
-#### .css([String name], [String value])
-#### .empty()
-#### .destroy()
-#### .attach(Function caller)
-#### .append(Element child, [Number index])
-#### .prepend(Element child, [Number index])
-#### .appendTo(Element parent, [Number index])
-#### .prependTo(Element parent, [Number index])
+#### Methods
+##### .hide()
+##### .show()
+##### .attach(Function attacher)
+##### .css([String name], [String value])
 
-#### .ancestors([String selector])
+#### Deletion methods
+##### .empty()
+##### .destroy()
+
+#### Insertion methods
+##### .append(Element child, [Number index])
+##### .prepend(Element child, [Number index])
+##### .appendTo(Element parent, [Number index])
+##### .prependTo(Element parent, [Number index])
+
+#### Selection methods
+##### .siblings([String selector])
+##### .prevSiblings([String selector])
+##### .nextSiblings([String selector])
+##### .prevSibling([String selector])
+##### .nextSibling([String selector])
+
+##### .ancestors([String selector])
 Match all elements in ancestor elements
 
-#### .farthestAncestor([String selector])
-#### .nearestAncestor([String selector])
+##### .farthestAncestor([String selector])
+##### .nearestAncestor([String selector])
 
-#### .children([String selector])
+##### .children([String selector])
 Match all elements in first tree level child elements
 
-#### .firstChild([String selector])
+##### .firstChild([String selector])
 Match first element in first tree level child elements
 
-#### .lastChild([String selector])
+##### .lastChild([String selector])
 Match last element in first tree level child elements
 
-#### .siblings([String selector])
-#### .prevSibling([String selector])
-#### .nextSibling([String selector])
-#### .prevSiblings([String selector])
-#### .nextSiblings([String selector])
-
-#### .select(String selector)
+##### .select(String selector)
 Select all elements descended from the element that match the selector
 
-#### .selectFirst(String selector)
+##### .selectFirst(String selector)
 Select the first element descended from the element that match the selector
 
-#### .selectLast(String selector)
+##### .selectLast(String selector)
 Select the last element descended from the element that match the selector
 
 ## License
