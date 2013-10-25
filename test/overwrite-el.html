@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script>
+      var ObjectElement = require('object-element');
+      var test = require('simple-test');
+
+      function createDiv() {
+        return document.body.appendChild(document.createElement('div'));
+      }
+
+      test('rewrite objectElement.el', function () {
+        var div1 = createDiv();
+        var div2 = createDiv();
+        var objectElement = new ObjectElement(div1);
+
+        objectElement.text = 'div1';
+        test.eq(div1.textContent, 'div1')
+
+        objectElement.el = div2
+        objectElement.text = 'div2';
+        test.eq(div2.textContent, 'div2')
+      });
+
+    </script>
+  </body>
+</html>
