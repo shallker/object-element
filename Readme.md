@@ -37,17 +37,8 @@ var objectElement = new ObjectElement(element);
 ##### .hide()
 ##### .show()
 ##### .attach(Function attacher)
+##### .match(String selector)
 ##### .css([String name], [String value])
-
-#### Deletion methods
-##### .empty()
-##### .destroy()
-
-#### Insertion methods
-##### .append(Element child, [Number index])
-##### .prepend(Element child, [Number index])
-##### .appendTo(Element parent, [Number index])
-##### .prependTo(Element parent, [Number index])
 
 #### Selection methods
 ##### .siblings([String selector])
@@ -55,6 +46,11 @@ var objectElement = new ObjectElement(element);
 ##### .nextSiblings([String selector])
 ##### .prevSibling([String selector])
 ##### .nextSibling([String selector])
+##### .prev([String selector])
+Alias of .prevSibling()
+
+##### .next([String selector])
+Alias of .nextSibling()
 
 ##### .ancestors([String selector])
 Match all elements in ancestor elements
@@ -64,6 +60,9 @@ Match all elements in ancestor elements
 
 ##### .children([String selector])
 Match all elements in first tree level child elements
+
+#### .child(Number index)
+Get nth child by index
 
 ##### .firstChild([String selector])
 Match first element in first tree level child elements
@@ -79,6 +78,20 @@ Select the first element descended from the element that match the selector
 
 ##### .selectLast(String selector)
 Select the last element descended from the element that match the selector
+
+#### Insertion methods
+##### .append(Element child, [Number index])
+##### .prepend(Element child, [Number index])
+##### .appendTo(Element parent, [Number index])
+##### .prependTo(Element parent, [Number index])
+##### .before(ELement sibling, [Number shift])
+##### .after(ELement sibling, [Number shift])
+##### .insertBefore(ELement target, [Number shift])
+##### .insertAfter(ELement target, [Number shift])
+
+#### Deletion methods
+##### .empty()
+##### .destroy()
 
 ## License
 
