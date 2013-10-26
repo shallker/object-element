@@ -33,7 +33,7 @@
         var div = createDiv();
         var objectDiv = new ObjectElement(div);
 
-        objectDiv.html = '<div>.html</div>';
+        objectDiv.html = '<div>html</div>';
         remove(div);
       });
 
@@ -42,11 +42,11 @@
         var objectDiv = new ObjectElement(div);
 
         objectDiv.opacity = '0';
-        test.eq(div.style.opacity, '0')
+        test.eq(div.style.opacity, '0');
         objectDiv.opacity = '0.5';
-        test.eq(div.style.opacity, '0.5')
+        test.eq(div.style.opacity, '0.5');
         objectDiv.opacity = '1';
-        test.eq(div.style.opacity, '1')
+        test.eq(div.style.opacity, '1');
         remove(div);
       });
 

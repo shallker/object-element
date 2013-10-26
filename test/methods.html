@@ -6,31 +6,41 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
-    <script src="./index.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
 
-      function createDiv() {
-        return document.body.appendChild(document.createElement('div'));
-      }
-
       test('objectElement.show()', function () {
         var div = createDiv();
-        var objectElement = new ObjectElement(div);
+        var objectDiv = new ObjectElement(div);
 
         div.style.display = 'none';
-        objectElement.text = '.show()';
-        objectElement.show();
+        objectDiv.text = '.show()';
+        objectDiv.show();
+        // remove(div);
       });
 
       test('objectElement.hide()', function () {
         var div = createDiv();
-        var objectElement = new ObjectElement(div);
+        var objectDiv = new ObjectElement(div);
 
         div.style.display = 'block';
-        objectElement.text = '.hide()';
-        objectElement.hide();
+        objectDiv.text = '.hide()';
+        objectDiv.hide();
+        // remove(div);
+      });
+
+      test('objectElement.tie(callback)', function () {
+        var div = createDiv();
+        var objectDiv = new ObjectElement(div);
+
+        objectDiv.tie(function (el) {
+          test.eq(el, div);
+          test.eq(this, objectDiv);
+        });
+
+        remove(div);
       });
       </script>
   </body>
