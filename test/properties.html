@@ -13,25 +13,52 @@
 
       test('objectElement.id', function () {
         var div = createDiv();
-        var objectElement = new ObjectElement(div);
+        var objectDiv = new ObjectElement(div);
 
-        objectElement.id = 'test';
+        objectDiv.id = 'test';
         test.eq(div.id, 'test');
+        remove(div);
       });
 
       test('objectElement.text', function () {
         var div = createDiv();
-        var objectElement = new ObjectElement(div);
+        var objectDiv = new ObjectElement(div);
 
-        objectElement.text = '.text';
+        objectDiv.text = '.text';
         test.eq(div.textContent, '.text');
+        remove(div);
       });
 
       test('objectElement.html', function () {
         var div = createDiv();
-        var objectElement = new ObjectElement(div);
+        var objectDiv = new ObjectElement(div);
 
-        objectElement.html = '<div>.html</div>';
+        objectDiv.html = '<div>.html</div>';
+        remove(div);
+      });
+
+      test('objectElement.opacity', function () {
+        var div = createDiv('div');
+        var objectDiv = new ObjectElement(div);
+
+        objectDiv.opacity = '0';
+        test.eq(div.style.opacity, '0')
+        objectDiv.opacity = '0.5';
+        test.eq(div.style.opacity, '0.5')
+        objectDiv.opacity = '1';
+        test.eq(div.style.opacity, '1')
+        remove(div);
+      });
+
+      test('objectElement.style', function () {
+        var div = createDiv('div');
+        var objectDiv = new ObjectElement(div);
+
+        objectDiv.style.width = '10px';
+        objectDiv.style.height = '20px';
+        test.eq(div.style.width, '10px');
+        test.eq(div.style.height, '20px');
+        remove(div);
       });
       </script>
   </body>
