@@ -6,16 +6,48 @@
   </head>
   <body>
     <script src="../build/build.js"></script>
-    <script src="./index.js"></script>
+    <script src="./helper/index.js"></script>
     <script>
       var ObjectElement = require('object-element');
       var test = require('simple-test');
 
-      function createDiv() {
-        return document.body.appendChild(document.createElement('div'));
-      }
+      test('objectElement.on(eventname, callback)', function (done) {
+        var div = createDiv();
+        var objectDiv = new ObjectElement(div);
 
-      test('objectElement.on()', function () {
+        div.textContent = 'click me';
+
+        objectDiv.on('click', function (click) {
+          test.eq(this, objectDiv);
+          test.eq(click.target, div);
+          div.textContent = '';
+          done();
+        });
+      });
+
+      test('objectElement.on(eventname, selector, callback)', function (done) {
+        var div = createDiv('div', 'div');
+        var div1 = createDiv('div1', 'div1');
+        var div2 = createDiv('div2', 'div2');
+        var div3 = createDiv('div3', 'div3');
+        var objectDiv = new ObjectElement(div);
+
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+
+        div1.textContent = 'div1';
+        div2.textContent = 'click div2';
+        div3.textContent = 'div3';
+
+        objectDiv.on('click', '.div2', function (click) {
+          test.eq(this.el, div2);
+          test.eq(click.target, div2);
+          div1.textContent = '';
+          div2.textContent = '';
+          div3.textContent = '';
+          done();
+        });
       });
 
       test('objectElement.off()', function () {
