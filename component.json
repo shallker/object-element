@@ -5,8 +5,10 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
+    "shallker-wang/eventy": "*",
+    "component/delegate": "*",
     "component/domify": "*",
-    "shallker-wang/eventy": "*"
+    "component/event": "*"
   },
   "development": {
     "shallker/simple-test": "*"  
