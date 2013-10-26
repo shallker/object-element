@@ -27,6 +27,7 @@ var objectElement = new ObjectElement(element);
 ##### .width
 ##### .height
 ##### .opacity
+##### .style
 
 #### Read-only properties
 ##### .tag
@@ -61,7 +62,7 @@ Match all elements in ancestor elements
 ##### .children([String selector])
 Match all elements in first tree level child elements
 
-#### .child(Number index)
+##### .child(Number index)
 Get nth child by index
 
 ##### .firstChild([String selector])
