@@ -37,7 +37,7 @@ var objectElement = new ObjectElement(element);
 #### Methods
 ##### .hide()
 ##### .show()
-##### .attach(Function attacher)
+##### .tie(Function callback)
 ##### .match(String selector)
 ##### .css([String name], [String value])
 
