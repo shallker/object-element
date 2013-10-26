@@ -94,6 +94,18 @@ Select the last element descended from the element that match the selector
 ##### .empty()
 ##### .destroy()
 
+#### Event methods
+##### .bind(String eventType, Function callback, [Boolean capture])
+##### .unbind(String eventType, Function callback, [Boolean capture])
+##### .addEventListener(String eventType, Function callback, [Boolean capture])
+##### .removeEventListener(String eventType, Function callback, [Boolean capture])
+##### .delegate(String eventType, String selector, Function callback, [Boolean capture])
+##### .undelegate(String eventType, String selector, Function callback, [Boolean capture])
+##### .on(String eventName, [String selector], Function callback, [Boolean capture])
+##### .off(String eventName, [String selector], Function callback, [Boolean capture])
+##### .triggerSync(String eventName, [Mix args...])
+##### .trigger(String eventName, [Mix args...])
+
 ## License
 
   MIT
