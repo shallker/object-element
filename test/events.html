@@ -20,7 +20,7 @@
         objectDiv.on('click', function (click) {
           test.eq(this, objectDiv);
           test.eq(click.target, div);
-          div.textContent = '';
+          remove(div);
           done();
         });
       });
@@ -43,10 +43,8 @@
         objectDiv.on('click', '.div2', function (click) {
           test.eq(this.el, div2);
           test.eq(click.target, div2);
-          div1.textContent = '';
-          div2.textContent = '';
-          div3.textContent = '';
           done();
+          remove(div);
         });
       });
 
